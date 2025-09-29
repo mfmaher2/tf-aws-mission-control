@@ -31,11 +31,11 @@ module "eks_al2023" {
       instance_types = [var.database_instance_type_db]
       ami_type       = var.ami_type
 
-      min_size = 2
+      min_size = 3
       max_size = 5
       # This value is ignored after the initial creation
       # https://github.com/bryantbiggs/eks-desired-size-hack
-      desired_size = 2
+      desired_size = 3
              labels = {
        "mission-control.datastax.com/role" = "database"}
       # This is not required - demonstrates how to pass additional configuration to nodeadm
@@ -62,7 +62,7 @@ module "eks_al2023" {
   
         min_size     = 1
         max_size     = 3
-        desired_size = 3
+        desired_size = 2
   
         additional_tags = {
           Name = "${var.cluster_name}-al2023-ng-two"
